@@ -1,1 +1,1 @@
-find -type f -type d  -name 'a*' -o -name 'z*' -o -name 'z*a!'
+find -name 'a*' -o -type f -name 'z*' -o -name 'z*a!'
