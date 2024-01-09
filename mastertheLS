@@ -1,1 +1,1 @@
-ls -Atp | tr '\n' ',' | sed 's/,$//' | sed 's/^,//; s/,$//'
+ls -Atp | tr '\n' ',' | sed 's/^,//; s/,$//'
