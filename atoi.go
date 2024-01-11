@@ -1,6 +1,9 @@
 package piscine
 
 func Atoi(s string) int {
+	if len(s) == 0 {
+		return 0
+	}
 	char := []rune(s)
 	res := 0
 	sign := 1
