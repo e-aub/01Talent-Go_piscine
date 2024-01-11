@@ -1,12 +1,13 @@
 package piscine
 
 func Atoi(s string) int {
-	if s == "" {
+	if s == "" || s == "-" || s == "+" {
 		return 0
 	}
 	char := []rune(s)
 	res := 0
 	sign := 1
+
 	if char[0] == '-' {
 		char = char[1:]
 		sign = -1
