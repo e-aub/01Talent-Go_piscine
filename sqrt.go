@@ -1,9 +1,15 @@
 package piscine
 
 func Sqrt(nb int) int {
-	if nb%2 == 0 {
-		return nb / 2
-	} else {
-		return 0
+	root := 0
+	if nb < 0 {
+		return root
 	}
+	for i := 0; i <= nb; i++ {
+		if nb == i*i {
+			root = i
+			break
+		}
+	}
+	return root
 }
