@@ -1,15 +1,13 @@
 package piscine
 
-import "math"
-
 func IsPrime(nb int) bool {
-	var res bool
-	for i := 2; i <= int(math.Sqrt(float64(nb))); i++ {
+	if nb < 2 {
+		return false
+	}
+	for i := 2; i < nb; i++ {
 		if nb%i == 0 {
-			res = false
-		} else {
-			res = true
+			return false
 		}
 	}
-	return res
+	return true
 }
