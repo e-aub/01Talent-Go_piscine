@@ -1,13 +1,13 @@
 package piscine
 
 func FindNextPrime(nb int) int {
-	for !IsPrime(nb) {
+	for !Prime(nb) {
 		nb++
 	}
 	return nb
 }
 
-func IsPrime(nb int) bool {
+func Prime(nb int) bool {
 	if nb < 2 {
 		return false
 	}
