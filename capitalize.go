@@ -2,6 +2,9 @@ package piscine
 
 func Capitalize(s string) string {
 	sRune := []rune(s)
+	if s == "" {
+		return s
+	}
 	for index, char := range sRune {
 		if char >= 'A' && char <= 'Z' {
 			sRune[index] = sRune[index] + 32
