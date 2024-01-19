@@ -11,7 +11,11 @@ func main() {
 	args := os.Args
 	// Checking for upper flag
 	i := 1
-
+	if len(args) == 1 {
+		return
+	} else if args[1] == "--upper" && len(args) == 1 {
+		return
+	}
 	if args[1] == "--upper" {
 		i = 2
 	}
