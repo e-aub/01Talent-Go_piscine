@@ -2,21 +2,11 @@ package main
 
 import (
 	"os"
-	"os/signal"
-	"syscall"
 
 	"github.com/01-edu/z01"
 )
 
 func main() {
-	signalChannel := make(chan os.Signal, 1)
-
-	signal.Notify(signalChannel, os.Interrupt, syscall.SIGINT)
-	go func() {
-		<-signalChannel
-		os.Exit(0)
-	}()
-
 	if len(os.Args) == 1 {
 		ReadStdin()
 		return
@@ -35,6 +25,7 @@ func main() {
 		}
 		Printer(string(Content))
 	}
+	z01.PrintRune('\n')
 }
 
 func Printer(s string) {
