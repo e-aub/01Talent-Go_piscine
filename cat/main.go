@@ -37,7 +37,7 @@ func ReadStdin() {
 		buffer := make([]byte, 1024)
 		n, err := os.Stdin.Read(buffer)
 		if err != nil {
-			os.Exit(0)
+			break
 		}
 
 		os.Stdout.Write(buffer[:n])
