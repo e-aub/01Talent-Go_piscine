@@ -7,8 +7,10 @@ import (
 )
 
 func main() {
+	if len(os.Args) == 1 {
+		ReadStdin()
+	}
 	args := os.Args[1:]
-
 	for index, filename := range args {
 		Content, err := os.ReadFile(filename)
 		if err != nil {
@@ -27,5 +29,18 @@ func main() {
 func Printer(s string) {
 	for _, letter := range s {
 		z01.PrintRune(letter)
+	}
+}
+
+func ReadStdin() {
+	for {
+		buffer := make([]byte, 1024)
+		n, err := os.Stdin.Read(buffer)
+		if err != nil {
+			errMsg := err.Error()
+			Printer(errMsg)
+			return
+		}
+		Printer(string(buffer[:n]))
 	}
 }
