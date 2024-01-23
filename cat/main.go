@@ -12,16 +12,15 @@ func main() {
 		return
 	}
 	args := os.Args[1:]
-	for index, filename := range args {
+	for _, filename := range args {
 		Content, err := os.ReadFile(filename)
 		if err != nil {
+			z01.PrintRune('\n')
 			Printer("ERROR: ")
 			errMsg := err.Error()
 			Printer(errMsg)
 			z01.PrintRune('\n')
-			if index == 0 {
-				os.Exit(1)
-			}
+			os.Exit(1)
 		}
 		Printer(string(Content))
 	}
