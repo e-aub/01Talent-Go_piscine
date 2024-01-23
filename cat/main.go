@@ -2,13 +2,24 @@ package main
 
 import (
 	"os"
+	"os/signal"
+	"syscall"
 
 	"github.com/01-edu/z01"
 )
 
 func main() {
+	signalChannel := make(chan os.Signal, 1)
+
+	signal.Notify(signalChannel, os.Interrupt, syscall.SIGINT)
+	go func() {
+		<-signalChannel
+		os.Exit(0)
+	}()
+
 	if len(os.Args) == 1 {
 		ReadStdin()
+		return
 	}
 	args := os.Args[1:]
 	for index, filename := range args {
@@ -37,10 +48,9 @@ func ReadStdin() {
 		buffer := make([]byte, 1024)
 		n, err := os.Stdin.Read(buffer)
 		if err != nil {
-			errMsg := err.Error()
-			Printer(errMsg)
-			return
+			os.Exit(0)
 		}
-		Printer(string(buffer[:n]))
+
+		os.Stdout.Write(buffer[:n])
 	}
 }
