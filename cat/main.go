@@ -25,7 +25,6 @@ func main() {
 		}
 		Printer(string(Content))
 	}
-	z01.PrintRune('\n')
 }
 
 func Printer(s string) {
