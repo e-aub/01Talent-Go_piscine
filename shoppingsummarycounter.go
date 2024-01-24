@@ -58,5 +58,11 @@ func ShoppingSummaryCounter(str string) map[string]int {
 			recipt["e"] = e
 		}
 	}
+	if recipt["e"] == 0 {
+		delete(recipt, "e")
+	}
+	if recipt["\"\""] == 0 {
+		delete(recipt, "\"\"")
+	}
 	return recipt
 }
