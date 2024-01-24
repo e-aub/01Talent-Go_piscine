@@ -4,12 +4,15 @@ func ShoppingSummaryCounter(str string) map[string]int {
 	recipt := make(map[string]int)
 	var s string
 	var items []string
-	for _, letter := range str {
+	for index, letter := range str {
 		if letter == ' ' {
 			items = append(items, s)
 			s = ""
 		} else {
 			s = s + string(letter)
+		}
+		if index == len(str)-1 {
+			items = append(items, s)
 		}
 	}
 
