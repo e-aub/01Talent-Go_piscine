@@ -4,7 +4,7 @@ func ShoppingSummaryCounter(str string) map[string]int {
 	recipt := make(map[string]int)
 	var s string
 	var items []string
-	if s == "" {
+	if str == "" {
 		items = append(items, "\"\"")
 	}
 	for index, letter := range str {
