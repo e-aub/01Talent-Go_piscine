@@ -6,12 +6,16 @@ func ShoppingSummaryCounter(str string) map[string]int {
 	Carrot := 0
 	Coffee := 0
 	Chips := 0
+	e := 0
+	space := 0
 	var recipt map[string]int = map[string]int{
 		"Burger": 0,
 		"Water":  0,
 		"Carrot": 0,
 		"Coffee": 0,
 		"Chips":  0,
+		"e":      0,
+		"\"\"":   0,
 	}
 
 	var s string
@@ -20,6 +24,8 @@ func ShoppingSummaryCounter(str string) map[string]int {
 		if letter == ' ' {
 			items = append(items, s)
 			s = ""
+		} else if letter == ' ' && str[index-1] == ' ' {
+			items = append(items, "")
 		} else {
 			s = s + string(letter)
 		}
@@ -44,6 +50,12 @@ func ShoppingSummaryCounter(str string) map[string]int {
 		} else if item == "Chips" {
 			Chips++
 			recipt["Chips"] = Chips
+		} else if item == "" {
+			space++
+			recipt["\"\""] = space
+		} else if item != " " && item != "" && item != "  " {
+			e++
+			recipt["e"] = e
 		}
 	}
 	return recipt
