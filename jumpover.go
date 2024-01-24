@@ -6,5 +6,5 @@ func JumpOver(str string) string {
 		s = s + string(str[i])
 		i += 2
 	}
-	return s
+	return s + "\n"
 }
