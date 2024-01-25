@@ -15,11 +15,11 @@ func PrintStr(s string) {
 func IsDoorClose(ptrDoor *Door) bool {
 	PrintStr("is the Door closed ?\n")
 	ptrDoor.state = "OPEN"
-	return true
+	return false
 }
 
 func IsDoorOpen(ptrDoor *Door) bool {
-	PrintStr("is the Door closed ?\n")
+	PrintStr("is the Door opened ?\n")
 	ptrDoor.state = "CLOSE"
 	return true
 }
