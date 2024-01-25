@@ -9,8 +9,6 @@ func RockAndRoll(n int) string {
 
 	if n < 0 {
 		return negative
-	} else if n == 0 {
-		return nonDivisible
 	} else if n%2 == 0 && n%3 == 0 {
 		return twoThree
 	} else if n%2 == 0 {
