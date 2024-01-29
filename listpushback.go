@@ -1,4 +1,4 @@
-package psicine
+package piscine
 
 type NodeL struct {
 	Data interface{}
